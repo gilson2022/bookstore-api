@@ -12,7 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.util.Arrays;
 
 @SpringBootApplication
-public class BootstoreApplication implements CommandLineRunner {
+public class BootstoreApplication {
 
     @Autowired
     private CategoriaRepository categoriaRepository;
@@ -24,16 +24,4 @@ public class BootstoreApplication implements CommandLineRunner {
     }
 
 
-    @Override
-    public void run(String... args) throws Exception {
-        Categoria cat1 = new Categoria(null, "Informática", "Livros de TI");
-
-        Livro l1 = new Livro(null, "Clean Code", "Robert Martin", "Lorem ipsum", cat1);
-
-        cat1.getLivros().addAll(Arrays.asList(l1));
-
-        this.categoriaRepository.saveAll(Arrays.asList(cat1));
-        this.livroRepository.saveAll(Arrays.asList(l1));
-
-    }
 }
