@@ -5,7 +5,6 @@ import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "")
 public class Livro implements Serializable {
     private static final long serialVersionUID = 1L;
 
