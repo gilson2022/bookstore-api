@@ -2,6 +2,7 @@ package br.com.gartech.bootstore.service;
 
 import br.com.gartech.bootstore.domain.Categoria;
 import br.com.gartech.bootstore.domain.repositories.CategoriaRepository;
+import br.com.gartech.bootstore.dtos.CategoriaDTO;
 import br.com.gartech.bootstore.service.exceptions.ObjectNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,13 @@ public class CategoriaService {
 
     public Categoria create(Categoria obj) {
         obj.setId(null);
+        return repository.save(obj);
+    }
+
+    public Categoria update(Integer id, CategoriaDTO objDto) {
+        Categoria obj = findById(id);
+        obj.setNome(objDto.getNome());
+        obj.setDescricao(objDto.getDescricao());
         return repository.save(obj);
     }
 }
